@@ -114,9 +114,14 @@ main button {
     cursor: pointer;
 }
 
+main button:hover {
+    transform: scale(1.2);
+}
+
 main button img {
     width: 2rem;
     height: 2rem;
+    margin: auto;
 }
 
 main p {
@@ -133,6 +138,12 @@ section {
     display: flex;
     flex-direction: column;
     gap: 3.4rem;
+
+    cursor: pointer;
+}
+
+.cats-adverts:hover {
+    transform: scale(1.1);
 }
 
 section h1 {
@@ -168,14 +179,27 @@ footer {
     margin-top: 3.9rem;
 }
 
+header {
+    --startY: -100%;
+    animation: move .5s;
+    animation-timing-function: ease-out;
+}
+
+footer {
+    --startY: 100%;
+    animation: move .5s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes move{
+    0% {
+        transform: translateY(var(--startY))
+    }
+}
+
 @media (max-width: 320px) {
     main img {
         width: 100%;
-    }
-
-    main button img{
-        width: 2rem;
-        height: 2rem;
     }
 
     main input {
@@ -193,7 +217,7 @@ footer {
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1180px) {
     header {
         padding: 1.2rem 11.2rem;
     }
@@ -213,7 +237,6 @@ footer {
         justify-content: center;
         gap: 3.2rem;
     }
-
 
     main {
         width: 80.4rem;
@@ -246,6 +269,11 @@ footer {
 
     section {
         gap: 3.2rem;
+    }
+
+    section img {
+        object-fit: cover;
+        border-radius: .5rem;
     }
 
     section h1 {
